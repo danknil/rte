@@ -4,9 +4,13 @@ pub mod input_handler;
 pub mod window_map;
 
 use slog::Logger;
-use smithay::reexports::calloop::EventLoop;
-
+use slog::{crit, error, info, warn};
+use smithay::reexports::calloop::{
+    timer::{Timer, TimerHandle},
+    EventLoop, LoopHandle, LoopSignal,
+};
 pub fn run_udev(log: Logger) {
-    let mut event_loop = EventLoop::try_new().unwrap();
-    let display = Rc::new(RefCell::new(Display::new()));
+    let event_loop: EventLoop<LoopSignal> = EventLoop::try_new().unwrap();
+    let loop_handle = event_loop.handle();
+    info!(log, "Successful created event loop");
 }
