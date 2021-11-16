@@ -31,17 +31,17 @@ fn main() {
     match arg.as_ref().map(|s| &s[..]) {
         #[cfg(feature = "winit")]
         Some("--winit") => {
-            info!(log, "Starting anvil with winit backend");
+            info!(log, "Starting rte with winit backend");
             run_winit(log);
         }
         #[cfg(feature = "udev")]
         Some("--udev") => {
-            info!(log, "Starting anvil on a tty using udev");
+            info!(log, "Starting rte on a tty using udev");
             run_udev(log);
         }
         #[cfg(feature = "x11")]
         Some("--x11") => {
-            info!(log, "Starting anvil with x11 backend");
+            info!(log, "Starting rte with x11 backend");
             run_x11(log);
         }
         Some(other) => {
